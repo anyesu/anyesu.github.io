@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /blog/articles/
+Sitemap: /sitemap-index.xml
