@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-Allow: /blog/articles/
-Sitemap: https://anyesu.github.io/sitemap-index.xml
+Sitemap: https://anyesu.github.io/sitemap-0.xml
