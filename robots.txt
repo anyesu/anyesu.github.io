@@ -1,2 +1,3 @@
 User-agent: *
+Disallow: /blog/admin*
 Sitemap: https://anyesu.github.io/sitemap-0.xml
