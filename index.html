@@ -29,14 +29,28 @@
     return val !== undefined && val !== null;
   }
   
+  function getElement(selector, container) {
+    // It's possible to pass "bad" attr or values here (originally from the manifest); just
+    // return null if there's something wrong.
+    try {
+      return container.querySelector(selector);
+    } catch (e) {
+      return null;
+    }
+  }
+  
   function push(localName, options) {
     options = options || {};
+    var container = options.body ? document.body : document.head;
+    var node;
+    if (options.check) node = getElement(localName + options.check, container);
+    if (!node) {
+      node = document.createElement(localName);
+      container.appendChild(node);
+    }
+  
     var attr = options.attr;
-    var body = options.body;
-    var node = document.createElement(localName);
     for (var k in attr) notNull(attr[k]) && node.setAttribute(k, attr[k]);
-    var container = body ? document.body : document.head;
-    container.appendChild(node);
     return node;
   }
   
@@ -49,6 +63,16 @@
     return push('meta', options);
   }
   
+  function link(rel, href, attr) {
+    attr = attr || {};
+    attr.rel = rel;
+    attr.href = href;
+    var check = '';
+    for (var k in attr)
+      if (notNull(attr[k]) && k !== 'href') check += '[' + k + '="' + attr[k] + '"]';
+    return push('link', { attr: attr, check: check });
+  }
+  
   function script(src, body, attr) {
     attr = attr || {};
     attr.src = src;
@@ -59,6 +83,7 @@
     getQueryString: getQueryString,
     push: push,
     meta: meta,
+    link: link,
     script: script
   };
   
@@ -364,7 +389,7 @@ document.write('<link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__antd.208a135
       if (node) node.setAttribute("class", 'fadeIn');
     }, 3000);
   }</script></div></div><script id="_tmp_8">if (!window.g_app_end) {
-document.write('\x3Cscript src="__PATH_TO_ROUTER_BASE__umi-dva.9b36d22c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__react.ae9e5937.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__antd.d9948fdd.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__octokit.3d28410c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__obsolete.da37c832.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__umi.4ddf20e9.js">\x3C/script>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
+document.write('\x3Cscript src="__PATH_TO_ROUTER_BASE__umi-dva.60a15e31.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__react.ae9e5937.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__antd.d9948fdd.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__octokit.3d28410c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__obsolete.da37c832.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__umi.80e598fe.js">\x3C/script>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
 }
 (function() {
   var dom = document.getElementById('_tmp_8');
