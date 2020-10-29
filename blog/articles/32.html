@@ -1,40 +1,372 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Single Page Apps for GitHub Pages</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for it to work
-      // with Internet Explorer (it is currently > 512 bytes)
+<!DOCTYPE html><html lang="en"><head><meta name="keywords" content="anyesu,Blog,技术博客,GitHub,写作,阅读"><meta name="description" content="这是 anyesu 的个人博客, 爱技术, 爱折腾"><meta http-equiv="Cache-Control" content="no-siteapp"><meta http-equiv="Cache-Control" content="no-transform"><meta name="applicable-device" content="pc,mobile"><meta name="MobileOptimized" content="width"><meta name="HandheldFriendly" content="true"><meta name="baidu-site-verification" content="code-VhW113B31D"><meta name="simpread:title" content="<h1>"><meta name="simpread:include" content="<div class='markdown-body'>"><link href="/atom.xml" title="订阅本站 ( Atom 1.0 )" type="application/atom+xml"><link href="/rss.xml" title="订阅本站 ( RSS 2.0 )" type="application/rss+xml"><link rel="manifest" href="/manifest.json"><link rel="sitemap" href="/sitemap-index.xml" title="Sitemap" type="application/xml"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=3"><link rel="icon" href="/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/favicon.ico"><meta name="referrer" content="never"><title>anyesu's Blog</title><style>html,
+      body,
+      #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+      }
 
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part of the path, and not
-      // the real directory in which the app resides, for example:
-      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
-      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-      // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 0;
+      #root {
+        position: relative;
+      }
 
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      html {
+        background-image: url('/home_bg.png');
+        background-repeat: repeat;
+        background-size: 100% auto;
+      }</style><script>window.routerBase = "/";
+  window.publicPath = 'https://cdn.jsdelivr.net/gh/anyesu/anyesu.github.io@master/';</script><script id="_tmp_1">if (!window.g_app_end) {
+  (function() {function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=?([^&]*)(&|$)', 'i');
+    var r = (window.location.search.split('?')[1] || '').match(reg);
+    return r != null ? decodeURIComponent(r[2]) : null;
+  }
+  
+  document.head = document.head || document.getElementsByTagName('head')[0];
+  
+  function notNull(val) {
+    return val !== undefined && val !== null;
+  }
+  
+  function push(localName, options) {
+    options = options || {};
+    var attr = options.attr;
+    var body = options.body;
+    var node = document.createElement(localName);
+    for (var k in attr) notNull(attr[k]) && node.setAttribute(k, attr[k]);
+    var container = body ? document.body : document.head;
+    container.appendChild(node);
+    return node;
+  }
+  
+  function meta(name, content) {
+    if (!content) return;
+    if (content === true) {
+      content = 'yes';
+    }
+    var options = { attr: { name: name, content: content }, check: '[name="' + name + '"]' };
+    return push('meta', options);
+  }
+  
+  function script(src, body, attr) {
+    attr = attr || {};
+    attr.src = src;
+    return push('script', { attr: attr, body: body });
+  }
+  
+  window.g_app_utils = {
+    getQueryString: getQueryString,
+    push: push,
+    meta: meta,
+    script: script
+  };
+  
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_1');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script id="_tmp_2">if (!window.g_app_end) {
+  (function() {
+  /*@cc_on
+  window._iealwn = { once: 0, outver: 9 };
+  var src = window.publicPath + 'static/js/ie-alert-warning.js';
+  var script = g_app_utils.script(src, false, { id: '_iealwn_js' });
+  script.onreadystatechange = function () {
+    var readyState = script.readyState;
+    var ready = readyState == 'loaded' || readyState == 'complete';
+    if (ready && _iealwn.iever <= _iealwn.outver) window.g_app_end = true;
+  };
+    
+  @*/
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_2');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script id="_tmp_3">if (!window.g_app_end) {
+  (function() {
+    var getQueryString = g_app_utils.getQueryString;
+    window.routerBase = getQueryString('routerBase') || window.routerBase;
+    window.publicPath = getQueryString('publicPath') || window.publicPath;
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_3');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script src="/static/js/busuanzi-2.3.pure.mini.js" async="true"></script><script id="_tmp_4">if (!window.g_app_end) {
+  (function() {
+    function resolveCdn(url, params) {
+      return url.replace(/{([^}]+)}/g, function (match, key) {
+        return params[key] || match;
+      });
+    }
+    function normalizeCdn(cdn, params) {
+      cdn = cdn === '' || cdn === 'true' ? 'jsdelivr' : cdn;
+      var SUPPORTED_CDNS = {"jsdelivr":"https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/","statically":"https://cdn.statically.io/gh/{owner}/{repo}/{branch}/","githack":"https://raw.githack.com/{owner}/{repo}/{branch}/"};
+      return cdn ? resolveCdn(SUPPORTED_CDNS[cdn.toLowerCase()] || cdn, params) : cdn;
+    }
+  
+    var cdn = g_app_utils.getQueryString('cdn');
+    if(cdn === 'false') {
+      window.publicPath = "/";
+    } else if (cdn !== null) {
+      window.publicPath = normalizeCdn(cdn, {"owner":"anyesu","repo":"anyesu.github.io","branch":"master"});
+    }
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_4');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script async src="/pwacompat.min.js"></script><script id="_tmp_5">if (!window.g_app_end) {
+  (function() {
+    var host = window.location.origin;
+    function addMeta(name, content) {
+      var meta = document.createElement('meta');
+      meta.name = name;
+      meta.content = content;
+      document.head.appendChild(meta);
+    }
+    addMeta("simpread:name", host);
+    addMeta("simpread:url", host + '/blog/articles/*');
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_5');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script id="_tmp_6">if (!window.g_app_end) {
+  (function() {
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-146426871-2', 'auto');
+  
+  })();
+  }
+  (function() {
+    var dom = document.getElementById('_tmp_6');
+    if (dom) dom.parentNode.removeChild(dom);
+  })();</script><script id="_tmp_7">if (!window.g_app_end) {
+document.write('<link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__antd.208a1357.chunk.css"/><link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__umi.1f847a87.css"/>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
+}
+(function() {
+  var dom = document.getElementById('_tmp_7');
+  if (dom) dom.parentNode.removeChild(dom);
+})();</script></head><body><div id="root"><noscript><center>Out-of-the-box blog solution!</center></noscript><div style="display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          min-height: 420px;
+          height: 100%;"><style>.page-loading-warp {
+    padding: 98px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ant-spin {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    position: absolute;
+    display: none;
+    color: #1890ff;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+    -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  }
 
-    </script>
-  </head>
-  <body>
-  </body>
-</html>
+  .ant-spin-spinning {
+    position: static;
+    display: inline-block;
+    opacity: 1;
+  }
+
+  .ant-spin-dot {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .ant-spin-dot-item {
+    position: absolute;
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-color: #1890ff;
+    border-radius: 100%;
+    -webkit-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    transform: scale(0.75);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0.3;
+    -webkit-animation: antSpinMove 1s infinite linear alternate;
+    animation: antSpinMove 1s infinite linear alternate;
+  }
+
+  .ant-spin-dot-item:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+  .ant-spin-dot-item:nth-child(2) {
+    top: 0;
+    right: 0;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+
+  .ant-spin-dot-item:nth-child(3) {
+    right: 0;
+    bottom: 0;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+
+  .ant-spin-dot-item:nth-child(4) {
+    bottom: 0;
+    left: 0;
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+  }
+
+  .ant-spin-dot-spin {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-animation: antRotate 1.2s infinite linear;
+    animation: antRotate 1.2s infinite linear;
+  }
+
+  .ant-spin-lg .ant-spin-dot {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .ant-spin-lg .ant-spin-dot i {
+    width: 14px;
+    height: 14px;
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ant-spin-blur {
+      background: #fff;
+      opacity: 0.5;
+    }
+  }
+
+  @-webkit-keyframes antSpinMove {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes antSpinMove {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes antRotate {
+    to {
+      -webkit-transform: rotate(405deg);
+      transform: rotate(405deg);
+    }
+  }
+
+  @keyframes antRotate {
+    to {
+      -webkit-transform: rotate(405deg);
+      transform: rotate(405deg);
+    }
+  }</style><div class="page-loading-warp"><div class="ant-spin ant-spin-lg ant-spin-spinning"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i> <i class="ant-spin-dot-item"></i> <i class="ant-spin-dot-item"></i> <i class="ant-spin-dot-item"></i></span></div></div><style>#mirrors-wrapper {
+    display: none;
+    margin: 16px;
+  }
+
+  #mirrors-wrapper.fadeIn {
+    display: block;
+  }
+
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+  }
+
+  .mirrors {
+    margin-top: 16px;
+    padding: 30px;
+    background-color: #222;
+    word-break: break-all;
+    overflow-y: hidden;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .mirrors .mirrors-comment {
+    color: #75715e;
+    margin: 0;
+  }
+
+  .mirrors .mirrors-link, .mirrors .mirrors-link a {
+    color: #e6db74;
+    margin: 0;
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }</style><div id="mirrors-wrapper"><center>加载太慢？试试切换 CDN 或其他镜像站</center><div class="mirrors"><p class="mirrors-comment">// 关闭 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=false">?cdn=false</a></p><br><p class="mirrors-comment">// 自定义 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn={url}/">?cdn={url}/</a></p><br><p class="mirrors-comment">// 内置 CDN</p><br><p class="mirrors-comment">// jsdelivr</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/">?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=jsdelivr">?cdn=jsdelivr</a></p><br><p class="mirrors-comment">// statically</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/">?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=statically">?cdn=statically</a></p><br><p class="mirrors-comment">// githack</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/">?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=githack">?cdn=githack</a></p><br></div></div><script>if (!window.g_app_end) {
+    setTimeout(function() {
+      var node = document.getElementById("mirrors-wrapper");
+      if (node) node.setAttribute("class", 'fadeIn');
+    }, 3000);
+  }</script></div></div><script id="_tmp_8">if (!window.g_app_end) {
+document.write('\x3Cscript src="__PATH_TO_ROUTER_BASE__umi-dva.9b36d22c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__react.ae9e5937.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__antd.d9948fdd.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__octokit.3d28410c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__obsolete.da37c832.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__umi.4ddf20e9.js">\x3C/script>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
+}
+(function() {
+  var dom = document.getElementById('_tmp_8');
+  if (dom) dom.parentNode.removeChild(dom);
+})();</script></body></html>
