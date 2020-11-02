@@ -63,14 +63,20 @@
     return push('meta', options);
   }
   
-  function link(rel, href, attr) {
+  function link(rel, href, attr, check) {
     attr = attr || {};
     attr.rel = rel;
     attr.href = href;
-    var check = '';
-    for (var k in attr)
-      if (notNull(attr[k]) && k !== 'href') check += '[' + k + '="' + attr[k] + '"]';
+    if (check === undefined) {
+      check = '';
+      for (var k in attr)
+        if (notNull(attr[k]) && k !== 'href') check += '[' + k + '="' + attr[k] + '"]';
+    }
     return push('link', { attr: attr, check: check });
+  }
+  
+  function stylesheet(href, attr) {
+    return link('stylesheet', href, attr, false);
   }
   
   function script(src, body, attr) {
@@ -79,12 +85,23 @@
     return push('script', { attr: attr, body: body });
   }
   
+  function publicPath(src) {
+    return (window.publicPath || '/') + src;
+  }
+  
+  function forEach(nodes, cb) {
+    [].forEach.call([].slice.call(nodes), cb);
+  }
+  
   window.g_app_utils = {
     getQueryString: getQueryString,
     push: push,
     meta: meta,
     link: link,
-    script: script
+    stylesheet: stylesheet,
+    script: script,
+    publicPath: publicPath,
+    forEach: forEach
   };
   
   })();
@@ -181,7 +198,11 @@
     var dom = document.getElementById('_tmp_6');
     if (dom) dom.parentNode.removeChild(dom);
   })();</script><script id="_tmp_7">if (!window.g_app_end) {
-document.write('<link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__antd.208a1357.chunk.css"/><link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__umi.1f847a87.css"/>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
+
+var chunks = ["antd.2e5fad2a.chunk.css","umi.86ebbe51.css"];
+g_app_utils.forEach(chunks, function (src) {
+  g_app_utils.stylesheet(g_app_utils.publicPath(src));
+});
 }
 (function() {
   var dom = document.getElementById('_tmp_7');
@@ -383,13 +404,17 @@ document.write('<link rel="stylesheet" href="__PATH_TO_ROUTER_BASE__antd.208a135
     100% {
       opacity: 1;
     }
-  }</style><div id="mirrors-wrapper"><center>加载太慢？试试切换 CDN 或其他镜像站</center><div class="mirrors"><p class="mirrors-comment">// 关闭 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=false">?cdn=false</a></p><br><p class="mirrors-comment">// 自定义 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn={url}/">?cdn={url}/</a></p><br><p class="mirrors-comment">// 内置 CDN</p><br><p class="mirrors-comment">// jsdelivr</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/">?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=jsdelivr">?cdn=jsdelivr</a></p><br><p class="mirrors-comment">// statically</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/">?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=statically">?cdn=statically</a></p><br><p class="mirrors-comment">// githack</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/">?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer" href="?cdn=githack">?cdn=githack</a></p><br></div></div><script>if (!window.g_app_end) {
+  }</style><div id="mirrors-wrapper"><center>加载太慢？试试切换 CDN 或其他镜像站</center><div class="mirrors"><p class="mirrors-comment">// 关闭 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=false">?cdn=false</a></p><br><p class="mirrors-comment">// 自定义 CDN</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn={url}/">?cdn={url}/</a></p><br><p class="mirrors-comment">// 内置 CDN</p><br><p class="mirrors-comment">// jsdelivr</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/">?cdn=https://cdn.jsdelivr.net/gh/{owner}/{repo}@{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=jsdelivr">?cdn=jsdelivr</a></p><br><p class="mirrors-comment">// statically</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/">?cdn=https://cdn.statically.io/gh/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=statically">?cdn=statically</a></p><br><p class="mirrors-comment">// githack</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/">?cdn=https://raw.githack.com/{owner}/{repo}/{branch}/</a></p><p class="mirrors-comment">// 缩写</p><p class="mirrors-link"><a target="_blank" rel="noopener noreferrer nofollow" href="?cdn=githack">?cdn=githack</a></p><br></div></div><script>if (!window.g_app_end) {
     setTimeout(function() {
       var node = document.getElementById("mirrors-wrapper");
       if (node) node.setAttribute("class", 'fadeIn');
     }, 3000);
   }</script></div></div><script id="_tmp_8">if (!window.g_app_end) {
-document.write('\x3Cscript src="__PATH_TO_ROUTER_BASE__umi-dva.60a15e31.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__react.ae9e5937.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__antd.d9948fdd.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__octokit.3d28410c.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__obsolete.da37c832.async.js">\x3C/script>\x3Cscript src="__PATH_TO_ROUTER_BASE__umi.80e598fe.js">\x3C/script>'.replace(/__PATH_TO_ROUTER_BASE__/g, window.publicPath));
+
+var chunks = ["umi-dva.105274e0.async.js","react.9b110efe.async.js","antd.6b14e58b.async.js","octokit.e95fcf68.async.js","obsolete.da37c832.async.js","umi.3430301c.js"];
+g_app_utils.forEach(chunks, function (src) {
+  g_app_utils.script(g_app_utils.publicPath(src), true);
+});
 }
 (function() {
   var dom = document.getElementById('_tmp_8');
